@@ -70,3 +70,5 @@ RUN curl -sS https://dl.google.com/android/repository/${SDK_VERSION} -o /tmp/sdk
         "add-ons;addon-google_apis-google-23" \
         "system-images;android-19;google_apis;armeabi-v7a" \
         "extras;android;m2repository"
+
+RUN npm install -g react-native-cli@2.0.1
