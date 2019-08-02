@@ -34,6 +34,7 @@ RUN mkdir -p /usr/share/man/man1 \
         python \
         openssh-client \
         unzip \
+        usbutils \
     && rm -rf /var/lib/apt/lists/*;
 
 # install nodejs and yarn packages from nodesource and yarn apt sources
