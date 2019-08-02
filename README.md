@@ -1,10 +1,19 @@
-## Android Docker Image for react native (Experimental)
+## Android Docker Image for React Native (Experimental)
 
 ## Motivation
 Provide Android SDK tools and Node.js for executing React Native builds
 
-## Dockerhub Image
+## Docker Hub Image
 https://hub.docker.com/r/k4connect/react-native-android/
+
+## Usage
+
+**N.B. Need to ensure USB devices are accessible if using a physical Android device with which to develop. Currently, 
+
+### Tested on Ubuntu (may work on macOS)
+```
+docker run -it --privileged -v /dev/bus/usb:/dev/bus/usb -v $(pwd):/workenv -w /workenv k4connect/react-native-android <YOUR_COMMAND_GOES_HERE>
+```
 
 ### Original Source
 
