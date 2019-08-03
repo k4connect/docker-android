@@ -36,11 +36,14 @@ RUN mkdir -p /usr/share/man/man1 \
         openssh-client \
         unzip \
         usbutils \
-        locales \
     && rm -rf /var/lib/apt/lists/*;
 
 # Ensure correct locale is set
-RUN locale-gen en_US.UTF-8
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+ENV LANG en_US.UTF-8 
 
 # install nodejs and yarn packages from nodesource and yarn apt sources
 RUN echo "deb https://deb.nodesource.com/node_${NODE_VERSION} stretch main" > /etc/apt/sources.list.d/nodesource.list \
